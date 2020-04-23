@@ -16,5 +16,14 @@ namespace CICDTest
             OpenPage.OpenPage().EnterSearchValue();
         }
 
+        [Test]
+        public void BasicTestDemo()//This is waste method need to delete later
+        {
+            //Need to validate
+            var context = this.DriverContext;
+            var OpenPage = new WikiPage(context);
+            OpenPage.OpenPage().EnterSearchValue();
+        }
+
     }
 }
