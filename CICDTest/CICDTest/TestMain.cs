@@ -13,7 +13,7 @@ namespace CICDTest
             //Need to validate
             var context = this.DriverContext;
             var OpenPage = new WikiPage(context);
-            OpenPage.OpenPage().EnterSearchValue().SeachFOrWellFargoWIKILink();
+            OpenPage.OpenPage().EnterSearchValue().SeachFOrSeleniumWIKILink();
         }
 
         [Test]

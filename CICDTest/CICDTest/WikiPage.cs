@@ -10,6 +10,7 @@ using CICDTest.Types;
 using System.Diagnostics;
 using System.IO;
 using AutoIt;
+using NUnit.Framework;
 
 namespace CICDTest
 {
@@ -19,7 +20,7 @@ namespace CICDTest
 
         public WikiPage(DriverContext driverContext) : base(driverContext)
         {
-
+            
         }
 
         private readonly ElementLocator
@@ -30,7 +31,7 @@ namespace CICDTest
 
         private readonly By search = By.XPath("//input[contains(@class,'gLFyf gsfi')]");
         private readonly By searchBtn = By.Name("btnK");
-        private readonly By WellsFargoLink = By.PartialLinkText("Wells Fargo - Wikipedia");
+        private readonly By seleniumhqlink = By.PartialLinkText("SeleniumHQ Browser Automation");
 
 
         public WikiPage OpenPage()
@@ -43,7 +44,7 @@ namespace CICDTest
 
         public WikiPage EnterSearchValue()
         {
-            this.Driver.FindElement(search).SendKeys("WellsFargo");
+            this.Driver.FindElement(search).SendKeys("Selenium HQ");
             System.Threading.Thread.Sleep(2000);
            // this.Driver.FindElements(searchBtn)[0].Click();
             var projectDirectory = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;            
@@ -51,10 +52,14 @@ namespace CICDTest
             return this;
         }
 
-        public WikiPage SeachFOrWellFargoWIKILink()
+        public WikiPage SeachFOrSeleniumWIKILink()
         {
+            
             System.Threading.Thread.Sleep(5000);
-            this.Driver.FindElement(WellsFargoLink).Click();
+            this.Driver.FindElement(seleniumhqlink).Click();
+            //System.Threading.Thread.Sleep(5000);           
+            string url=this.Driver.Url;
+            Assert.AreEqual("https://www.selenium.dev/", url);
             return this;
         }
 
