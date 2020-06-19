@@ -46,10 +46,13 @@ namespace CICDTest
         {
             this.Driver.FindElement(search).SendKeys("Selenium HQ");
             System.Threading.Thread.Sleep(2000);
-           // this.Driver.FindElements(searchBtn)[0].Click();
+            // this.Driver.FindElements(searchBtn)[0].Click();
+            Console.WriteLine("Before Timeout");
             var projectDirectory = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;            
             AutoItX.WinWaitActive(title: "Google - Google Chrome", timeout: 15);
+            Console.WriteLine("After Timeout");
             AutoItX.Send("{ENTER}");
+            Console.WriteLine("Clicked Enter");
             return this;
         }
 
@@ -57,7 +60,9 @@ namespace CICDTest
         {
             
             System.Threading.Thread.Sleep(5000);
+            Console.WriteLine("After Timeout of 5sec");
             this.Driver.FindElement(seleniumhqlink).Click();
+            Console.WriteLine("HQ link clicked");
             System.Threading.Thread.Sleep(5000);           
             string url=this.Driver.Url;
             Assert.AreEqual("https://www.selenium.dev/", url);
