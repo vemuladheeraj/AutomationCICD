@@ -57,7 +57,7 @@ namespace CICDTest
             
             System.Threading.Thread.Sleep(5000);
             this.Driver.FindElement(seleniumhqlink).Click();
-            //System.Threading.Thread.Sleep(5000);           
+            System.Threading.Thread.Sleep(5000);           
             string url=this.Driver.Url;
             Assert.AreEqual("https://www.selenium.dev/", url);
             return this;
