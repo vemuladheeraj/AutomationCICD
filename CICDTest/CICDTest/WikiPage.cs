@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using CICDTest.Helpers;
 using CICDTest.Page_Objects;
 using CICDTest.Types;
+using System.Diagnostics;
+using System.IO;
+using AutoIt;
 
 namespace CICDTest
 {
@@ -42,13 +45,15 @@ namespace CICDTest
         {
             this.Driver.FindElement(search).SendKeys("WellsFargo");
             System.Threading.Thread.Sleep(2000);
-            this.Driver.FindElements(searchBtn)[0].Click();
-
+           // this.Driver.FindElements(searchBtn)[0].Click();
+            var projectDirectory = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;            
+            AutoItX.Send("{ENTER}");
             return this;
         }
 
         public WikiPage SeachFOrWellFargoWIKILink()
         {
+            System.Threading.Thread.Sleep(5000);
             this.Driver.FindElement(WellsFargoLink).Click();
             return this;
         }
