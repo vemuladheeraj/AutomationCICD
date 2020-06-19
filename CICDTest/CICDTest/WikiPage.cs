@@ -48,6 +48,7 @@ namespace CICDTest
             System.Threading.Thread.Sleep(2000);
            // this.Driver.FindElements(searchBtn)[0].Click();
             var projectDirectory = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;            
+            AutoItX.WinWaitActive(title: "Google - Google Chrome", timeout: 15);
             AutoItX.Send("{ENTER}");
             return this;
         }
