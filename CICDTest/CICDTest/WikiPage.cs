@@ -66,6 +66,7 @@ namespace CICDTest
             System.Threading.Thread.Sleep(5000);           
             string url=this.Driver.Url;
             Assert.AreEqual("https://www.selenium.dev/", url);
+            Console.Out.Write(url);
             return this;
         }
 
