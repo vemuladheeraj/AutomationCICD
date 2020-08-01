@@ -16,7 +16,7 @@ namespace CICDTest
             OpenPage.OpenPage().EnterSearchValue().SeachFOrSeleniumWIKILink();
         }
 
-        [Test]
+     
         public void BasicTestDemo()//This is waste method need to delete later
         {
             //Need to validate
