@@ -15,7 +15,7 @@ namespace CICDTest.Helpers
 {
     public partial class DriverContext
     {
-
+        //private static ChromeDriverService service;
         public string TestTitle { get; set; }
         //public Collection<ErrorDetail> VerifyMessages
         //{
@@ -105,21 +105,25 @@ namespace CICDTest.Helpers
                     //ChromeOptions optionss = new ChromeOptions();
                     //optionss.BinaryLocation = @"C:\Users\vemul\source\repos\AutomationCICDTest\CICDTest\packages\Selenium.WebDriver.ChromeDriver.83.0.4103.3900\driver\win32\chromedriver.exe";
                     //DesiredCapabilities cap = DesiredCapabilities.
-                    
-                    //var chrome1 = string.IsNullOrEmpty(this.GetBrowserDriversFolder(BaseConfiguration.PathToChromeDriverDirectory)) ? new ChromeDriver(this.SetDriverOptions(this.ChromeOptions)) : new ChromeDriver(this.GetBrowserDriversFolder(BaseConfiguration.PathToChromeDriverDirectory), this.SetDriverOptions(this.ChromeOptions));
-                    try
-                    {
-                        // driver = new RemoteWebDriver(new Uri("http://192.168.1.102:5555/wd/hub"), ChromeOptions);
-                        DesiredCapabilities cap = new DesiredCapabilities();
-                        cap.SetCapability("browser", "chrome");
-                         driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), cap);
-                    }
-                    catch (Exception t)
-                    {
 
-                        Console.Out.WriteLine(t);
-                    }
+                    //var chrome;
+                    driver = string.IsNullOrEmpty(this.GetBrowserDriversFolder(BaseConfiguration.PathToChromeDriverDirectory)) ? new ChromeDriver(this.SetDriverOptions(this.ChromeOptions)) : new ChromeDriver(this.GetBrowserDriversFolder(BaseConfiguration.PathToChromeDriverDirectory), this.SetDriverOptions(this.ChromeOptions));
+                    //try
+                    //{
+                    //    // driver = new RemoteWebDriver(new Uri("http://192.168.1.102:4444/wd/hub"), ChromeOptions);
+                      
+                    //    driver = new RemoteWebDriver(new Uri("http://192.168.0.102:4444/wd/hub"), ChromeOptions.ToCapabilities());
+
+
+
                   
+                    //}
+                    //catch (Exception t)
+                    //{
+
+                    //    Console.Out.WriteLine(t);
+                    //}
+
                     //this.driver = string.IsNullOrEmpty(this.GetBrowserDriversFolder(BaseConfiguration.PathToChromeDriverDirectory)) ? new ChromeDriver(this.SetDriverOptions(this.ChromeOptions)) : new ChromeDriver(this.GetBrowserDriversFolder(BaseConfiguration.PathToChromeDriverDirectory), this.SetDriverOptions(this.ChromeOptions));
                     driver.Manage().Window.Maximize();
                     break;
@@ -158,8 +162,8 @@ namespace CICDTest.Helpers
                 options.AddUserProfilePreference("profile.default_content_settings.popups", 0);
                 // options.AddUserProfilePreference("download.default_directory", this.DownloadFolder);
                 options.AddUserProfilePreference("download.prompt_for_download", false);
-                //options.BinaryLocation = @"C:\Users\vemul\source\repos\AutomationCICDTest\CICDTest\packages\Selenium.WebDriver.ChromeDriver.83.0.4103.3900\driver\win32\chromedriver.exe";
-
+                // options.BinaryLocation = @"C:\Users\vemul\source\repos\AutomationCICDTest\CICDTest\packages\Selenium.WebDriver.ChromeDriver.83.0.4103.3900\driver\win32\chromedriver.exe";
+                options.BinaryLocation = BaseConfiguration.ChromeBrowserExecutableLocation;
                 // set browser proxy for chrome
                 if (!string.IsNullOrEmpty(BaseConfiguration.Proxy))
                 {
