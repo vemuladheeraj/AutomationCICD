@@ -13,6 +13,6 @@ namespace CICDTest.Helpers
         {
             this.DriverOptions = options;
         }
-        public DriverOptions DriverOptions { get; }
+        public DriverOptions DriverOptions { get; set; }
     }
 }
