@@ -7,7 +7,7 @@ namespace CICDTest
 
     public class TestMain : ProjectTestBase
     {
-        [Test]
+        [Test,Author("Dheeraj"),Category("googletest")]
         public void BasicTest()
         {
             //Need to validate
